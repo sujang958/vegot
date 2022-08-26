@@ -50,7 +50,7 @@ const vegot = (
             "Content-Length": Buffer.byteLength(options.body),
           }),
         },
-        method: options?.oddMethod ?? options?.method,
+        method: options?.oddMethod ?? options?.method ?? "GET",
       },
       (res) => {
         let data = ""
