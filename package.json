@@ -5,12 +5,13 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && uglifyjs ./lib/index.js -o ./lib/index.js"
   },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.7.13",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "uglify-js": "^3.17.0"
   },
   "author": {
     "name": "sujang958",
@@ -24,5 +25,6 @@
     "HTTP",
     "http",
     "fetch"
-  ]
+  ],
+  "dependencies": {}
 }
