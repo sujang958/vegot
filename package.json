@@ -5,7 +5,8 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "tsc && uglifyjs ./lib/index.js -o ./lib/index.js"
+    "build": "tsc && uglifyjs ./lib/index.js -o ./lib/index.js && yarn test",
+    "test": "node tests/test.js"
   },
   "license": "MIT",
   "devDependencies": {
