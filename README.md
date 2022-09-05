@@ -13,7 +13,7 @@ $ npm install vegot
 Using yarn:
 
 ```sh
-$ yarn install vegot
+$ yarn add vegot
 ```
 
 ## Importing
