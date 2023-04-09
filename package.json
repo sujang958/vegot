@@ -3,7 +3,7 @@
   "description": "Very simple HTTP client",
   "version": "1.0.6",
   "types": "./lib/index.d.ts",
-  "main": "./lib/vegot.js",
+  "main": "./lib/index.js",
   "scripts": {
     "build": "tsc && uglifyjs ./lib/index.js -o ./lib/index.js && yarn test",
     "test": "node tests/test.js"
