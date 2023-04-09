@@ -1,6 +1,6 @@
 const assert = require("node:assert")
 const { test } = require("node:test")
-const vegot = require("../lib/index").default
+const vegot = require("vegot").default
 
 test("Method", async (t) => {
   await t.test("it should be GET", async () => {

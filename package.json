@@ -6,13 +6,14 @@
   "main": "./lib/index.js",
   "scripts": {
     "build": "tsc && uglifyjs ./lib/index.js -o ./lib/index.js && yarn test",
-    "test": "node tests/test.js"
+    "test": "yarn && node tests/test.js"
   },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.7.13",
     "typescript": "^4.7.4",
-    "uglify-js": "^3.17.0"
+    "uglify-js": "^3.17.0",
+    "vegot": "./"
   },
   "author": {
     "name": "sujang958",
