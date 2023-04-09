@@ -3,34 +3,45 @@ const { test } = require("node:test")
 const vegot = require("../lib/index").default
 
 test("Method", async (t) => {
-  await t.test("It should be GET", () => {
-    vegot("https://httpbin.org/anything", { method: "GET" }).then(
-      ({ data }) => {
-        const res = JSON.parse(data)
-        assert.equal(res.method, "GET")
-      }
-    )
+  await t.test("it should be GET", async () => {
+    const res = await vegot("https://httpbin.org/anything")
+    const json = JSON.parse(res.data)
+    assert.equal(json.method, "GET")
   })
 
-  await t.test("It should be POST", () => {
-    vegot("https://httpbin.org/anything", { method: "POST" }).then(
-      ({ data }) => {
-        const res = JSON.parse(data)
-        assert.equal(res.method, "POST")
-      }
-    )
+  await t.test("it should be POST", async () => {
+    const res = await vegot("https://httpbin.org/anything", { method: "POST" })
+    const json = JSON.parse(res.data)
+    assert.equal(json.method, "POST")
   })
 })
 
 test("Headers", async (t) => {
-  await t.test("They should include MyHeader", () => {
-    vegot("https://httpbin.org/anything", {
-      headers: {
-        MyHeader: "MyHeader",
-      },
-    }).then(({ data }) => {
-      const res = JSON.parse(data)
-      assert.equal(res.headers.MyHeader, "MyHeader")
+  const random = Math.random().toString()
+  await t.test(
+    `they should include MyHeader and its value should be ${random}`,
+    async () => {
+      const headerKey = "Myheader"
+      const res = await vegot("https://httpbin.org/anything", {
+        headers: {
+          [headerKey]: random,
+        },
+      })
+      const json = JSON.parse(res.data)
+      assert.equal(json.headers[headerKey], random)
+    }
+  )
+})
+
+test("Body", async (t) => {
+  const random = Math.random().toString()
+
+  await t.test(`it should be ${random}`, async () => {
+    const res = await vegot("https://httpbin.org/anything", {
+      body: random,
+      method: "POST",
     })
+    const json = JSON.parse(res.data)
+    assert.equal(json.data, random)
   })
 })
