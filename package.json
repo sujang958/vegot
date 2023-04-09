@@ -2,17 +2,8 @@
   "name": "vegot",
   "description": "Very simple HTTP client",
   "version": "1.0.5",
-  "types": "./index.d.ts",
-  "source": "./src/index.ts",
-  "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/vegot.mjs",
-    "require": "./dist/vegot.js",
-    "default": "./dist/vegot.mjs"
-  },
-  "module": "dist/vegot.mjs",
-  "main": "dist/vegot.js",
-  "unpkg": null,
+  "types": "./lib/index.d.ts",
+  "main": "./lib/vegot.js",
   "scripts": {
     "build": "tsc && uglifyjs ./lib/index.js -o ./lib/index.js && yarn test",
     "test": "node tests/test.js"
